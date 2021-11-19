@@ -13,4 +13,3 @@ class KudoFilter(filters.FilterSet):
     class Meta:
         model = Kudo
         fields = ['title', 'year', 'year__gt', 'year__lt', 'creator__email']
-

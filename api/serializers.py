@@ -2,7 +2,6 @@ from rest_framework import serializers
 
 from authentication.models import Employee
 from .models import Kudo
-from django.contrib.auth.models import User
 
 
 class KudoSerializer(serializers.ModelSerializer):  # create class to serializer model

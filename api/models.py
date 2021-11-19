@@ -13,5 +13,3 @@ class Kudo(models.Model):
 
     class Meta:
         ordering = ['-id']
-
-

@@ -1,24 +1,13 @@
 <h1 align="center">@amirh-moshfeghi/kudo-box</h1>
 
 <p align="center">
-  <b>This is the simple instruction to run and customize  simulation platform </b></br>
-  <p align="left">Use this instruction below so you can run the optimize version of rescue simulation platform which has been awarded many times in Robocup throughout past years.you can <code>contribute</code> to this project and please dont hesitate to ask any kind of question.<br>
-at the end of the instruction you can read the brief version of what our platform do overall and how our simulation works<sub>
-</p>
-
+  <b>This is the instruction to run and customize a simple kudo service </b></br>
 <br />
 
 
-<p align="center">
-  <img src="https://www.robocup.org/system/sub_leagues/images/000/000/026/list/ressim.png?1473153988" alt="Demo" width="800" />
-</p>
 
-* **Fire Brigades**: red lighting agents in the map who are responsible to search for civilians since 2020(past years they were responsible to search and distinguish fire)
-* **Police Force**: blue lighting agents in the map who are responsible to clear blockades or search for civilians 
-* **Ambulance Team**: white lighting agents in the map who are responsible to load and drop civilians to the refuge so the civilians health would have been restored
-* **Blockades**: black objects in the map which is the symbol of crashed buildings
-* **Buildings**: rectangular shaped or any similar objects in the map
-* **Civilians**: the green lighting agents in the map,they are the symbol of humans trapped in collapse
+
+
 <details>
 <summary>📖 Table of Contents</summary>
 <br />
@@ -42,9 +31,11 @@ at the end of the instruction you can read the brief version of what our platfor
 ## ➤ Pre-Requisites
 
 ```
-- Git
-- Gradle
-- OpenJDK Java 11+
+- Python 
+- Django 
+- Django REST Framework
+- Djangorestframework-simplejwt
+- Swagger
 ```
 
 These are same Pre-Requisites for both Linux and Windows
@@ -54,128 +45,146 @@ These are same Pre-Requisites for both Linux and Windows
 ## ➤ Installation
 
 ```bash
-$ git clone https://github.com/roborescue/rcrs-adf-sample.git
+$ git clone https://github.com/amirh-moshfeghi/kudo_cards.git
 ```
 
-First you have to install ADF(Agent Development Framework) which is written in java and it is for robocup competitions purpose(you are free to use it anywhere)
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#getting-started-quick)
+After you cloned the repository, you want to create a virtual environment, so you have a clean python installation. You can do this by running the command :
 
-## ➤ Compile
 
-```bash
-$ ./gradlew clean
-
-$ ./gradlew build
 ```
+python -m venv env
+```
+
+After this, it is necessary to activate the virtual environment, you can get more information about this here
+
+You can install all the required dependencies by running
+
+```
+pip install -r requirements.txt
+```
+
+
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#getting-started-slower)
 
 ## ➤ Execute and Run
 
-The `rcrs-adf-sample` is a sample team implementation for the RCRS (`rcrs-server`) using the ADF core (`rcrs-adf-core`).
 
-To run the `rcrs-adf-sample`, first the `rcrs-server` must be running (Instructions of how to download, compile and run the `rcrs-server` are available at <https://github.com/roborescue/rcrs-server>).
 
-After start the `rcrs-server`, open a new terminal window and execute
+We can test the API using curl or httpie, or we can use Postman
+First, we have to start up Django's development server.
 
 ```bash
-$ cd MRL
-
-$ ./launch.sh -all
+python manage.py runserver
 ```
 
+Only authenticated users can use the API services, for that reason if we try this:
+
+```
+http  http://127.0.0.1:8000/api/v1/kudos/
+```
+
+we get:
+
+```
+{
+    "detail": "Authentication credentials were not provided."
+}
+```
+
+Instead, if we try to access with credentials:
+
+```
+http http://127.0.0.1:8000/api/v1/kudos/3 "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE2MjA4Mjk1LCJqdGkiOiI4NGNhZmMzMmFiZDA0MDQ2YjZhMzFhZjJjMmRiNjUyYyIsInVzZXJfaWQiOjJ9.NJrs-sXnghAwcMsIWyCvE2RuGcQ3Hiu5p3vBmLkHSvM"
+```
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#getting-started-slower)
 
-### ➤ Usage
+### ➤ Create users and Tokens
 
-The instruction Table is listed below,if you want to read more you can visit: https://rescuesim.robocup.org/resources/documentation
-
-There might be some changes in below table in the last version.if you ran into any problem you can contact me anytime
-
-| Option                | Type                                             | Description                                      |
-|-----------------------|--------------------------------------------------|--------------------------------------------------|
-| -p, --package         | string                                           | Path of the 'package.json' file. Defaults to 'package.json'. |
-| --pkg.contributors    | {name: string; email: string; url: string; img: string; info: string[];}[] | Contributors of the project. Used for the 'contributors' . |
-| --pkg.license         | string                                           | License kind. Used for the 'license' .   |
-| -o, --output          | string                                           | Path of the generated Log file |
-| -h, --help            |                                                  | Display this help message.                       |
-| -s, --silent          | boolean                                          | Whether the console output from the command should be silent. |
-| -d, --dry             | boolean                                          | Whether the command should run as dry. If dry, the output file is notgenerated but outputted to the console instead. |
-| --headingPrefix       | {[key: number]: string}                          | The prefix of the header tags. Defaults to '{1: "➤ ", 2: "➤ "}' |
-| --extend              | string                                           | Path to another configuration object that should be extended. |
-
-
-
-<br>
-<br>
-
-
-### ➤ How Rescue Simulation Works
-<sub>
-our system is a java platform which has a specific architecture so we can develop every section as easiest as possible.we use GIS to create a map first and we make some simulators of collision and fire and blockades and so on.then we use clustering algorithms like k-means and assign agents to them with hungarian algorithm.i am assuming that you know how to implement agents or you are using pre-defined agent from ADF.let' s consider an example how to make a search for an agent (calculation of search):
-
-```java
-@Override
-public PathPlanning calc() {
-List<EntityID> open = new LinkedList<>();
-List<EntityID> close = new LinkedList<>();
-Map<EntityID, Node> nodeMap = new HashMap<>();
-open.add(this.from);
-nodeMap.put(this.from, new Node(null, this.from));
-close.clear();
-
-    while (true) {
-      if (open.size() < 0) {
-        this.result = null;
-        return this;
-      }
-      Node n = null;
-      for (EntityID id : open) {
-        Node node = nodeMap.get(id);
-        if (n == null) {
-          n = node;
-        } else if (node.estimate() < n.estimate()) {
-          n = node;
-        }
-      }
-      if (targets.contains(n.getID())) {
-        List<EntityID> path = new LinkedList<>();
-        while (n != null) {
-          path.add(0, n.getID());
-          n = nodeMap.get(n.getParent());
-        }
-        this.result = path;
-        return this;
-      }
-      open.remove(n.getID());
-      close.add(n.getID());
-
-      Collection<EntityID> neighbours = this.graph.get(n.getID());
-      for (EntityID neighbour : neighbours) {
-        Node m = new Node(n, neighbour);
-        if (!open.contains(neighbour) && !close.contains(neighbour)) {
-          open.add(m.getID());
-          nodeMap.put(neighbour, m);
-        }
-        else if (open.contains(neighbour) && m.estimate() < nodeMap.get(neighbour).estimate()) {
-          nodeMap.put(neighbour, m);
-        }
-        else if (!close.contains(neighbour) && m.estimate() < nodeMap.get(neighbour).estimate()) {
-          nodeMap.put(neighbour, m);
-        }
-      }
-    }
-}
+First we need to create a user, so we can log in
 
 ```
+http POST http://127.0.0.1:8000/api/v1/auth/register/ email="email@email.com" username="USERNAME" password1="PASSWORD" password2="PASSWORD"
+```
+
+After we create an account we can use those credentials to get a token
+
+To get a token first we need to request:
+```
+http http://127.0.0.1:8000/api/v1/auth/token/ username="username" password="password"
+```
+
+after that, we get the token
+
+```
+{
+    "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYxNjI5MjMyMSwianRpIjoiNGNkODA3YTlkMmMxNDA2NWFhMzNhYzMxOTgyMzhkZTgiLCJ1c2VyX2lkIjozfQ.hP1wPOPvaPo2DYTC9M1AuOSogdRL_mGP30CHsbpf4zA",
+    "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE2MjA2MjIxLCJqdGkiOiJjNTNlNThmYjE4N2Q0YWY2YTE5MGNiMzhlNjU5ZmI0NSIsInVzZXJfaWQiOjN9.Csz-SgXoItUbT3RgB3zXhjA2DAv77hpYjqlgEMNAHps"
+}
+```
+
+We got two tokens, the access token will be used to authenticated all the requests we need to make, this access token will expire after some time. We can use the refresh token to request a need access token.
+
+requesting new access token
+
+```
+http http://127.0.0.1:8000/api/v1/auth/token/refresh/ refresh="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYxNjI5MjMyMSwianRpIjoiNGNkODA3YTlkMmMxNDA2NWFhMzNhYzMxOTgyMzhkZTgiLCJ1c2VyX2lkIjozfQ.hP1wPOPvaPo2DYTC9M1AuOSogdRL_mGP30CHsbpf4zA"
+```
+
+and we will get a new access token
+
+```
+{
+    "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE2MjA4Mjk1LCJqdGkiOiI4NGNhZmMzMmFiZDA0MDQ2YjZhMzFhZjJjMmRiNjUyYyIsInVzZXJfaWQiOjJ9.NJrs-sXnghAwcMsIWyCvE2RuGcQ3Hiu5p3vBmLkHSvM"
+}
+```
+
+The API has some restrictions:
+
+-   The kudos are associated with a creator (user who created it).
+-   Only authenticated users may create and see kudos.
+-   Only the creator of a kudo may update or delete it(or manager or team leader dependent on situation).
+-   The API doesn't allow unauthenticated and unauthorized requests.
+
+
+| Endpoint                | HTTP Method	                                             | CRUD/Result	                                      |
+|-----------------------|--------------------------------------------------|--------------------------------------------------|
+| kudos         | GET                                           | READ/Get all kudos|
+| kudos/:id    | GET |READ/Get single object of kudo |
+| kudos         | POST                                           | CREATE/Create a single kudo   |
+| kudos/:id          | PUT                                           | UPDATE/Update a kudo |
+| kudos/:id            | DELETE                                                 |DELETE/Delete a kudo                       |
+
 
 
 <br>
-as you see our approach is to simulate a city or something like that and then we try to rescue civilians so our agents have to calculate and decide what is the best way and optimize way to rescue all civilians in minimum time
+<br>
+
+
+### ➤ Pagination
+<sub>
+The API supports pagination, by default responses have a page_size=10 but if you want change that you can pass through params page_size={your_page_size_number}
+
+```
+http http://127.0.0.1:8000/api/v1/kudos/?page=1 "Authorization: Bearer {YOUR_TOKEN}"
+```
+
+### ➤ Filters
+<br>
+The API supports filtering, you can filter by the attributes of a kudo like this:
+
+```
+http http://127.0.0.1:8000/api/v1/kudos/?creator__username="myUsername" "Authorization: Bearer {YOUR_TOKEN}"
+```
 
 </sub>
-
-
+<p align="right"> توضیحات تکمیلی</p>
+<p align="right"> من در این مینی پروژه سعی کردم استانداردها و پروپوزال های رایج اصول کدنویسی تمیز رو رعایت کنم ،همچنین سعی کردم برای هر سرویس از لایبرری های مرسوم استفاده نکنم و از اول بنویسم مثل سرویس های رجیستر و غیره</p>
+<p align="right">تمامی اندپوینت ها تست شده و داخل کالکشن پستمن رسکوئست ها و ریسپانس ها قرار داده شده
+</p>
+<p align="right"> کانسپت کلی پروژه به صورت پیش فرض بر روی استفاده از یوزرمدل و سطح دسترسی های شخصی سازی شده بوده و سطح دسترسی های مدیر تیم و مدیر سازمان و هر کارمند به صورت مجزا تعریف شده</p>
+<p align="right">جهت سهولت دریافت دیتا،صفحه گذاری و فیلتر سرچ بر روی کوئری پارامتر هم قرار داده شده است </p>
+<p align="right ">نکته ی اخر اینکه این تسک حدود 9-10 ساعت زمان برده،خوشحال میشم اگر نظری یا سوالی دارید با من در تماس باشید </p>
 
 ## ➤ Contributors
 
@@ -186,15 +195,11 @@ as you see our approach is to simulate a city or something like that and then we
 
 
 
-### License
 
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#license)
 
-## ➤ License
-
-Licensed under [MIT](https://opensource.org/licenses/MIT).
 
 
 

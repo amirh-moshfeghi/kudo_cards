@@ -1,14 +1,11 @@
 import datetime
 
-from django.core import serializers
 from django.core.mail import EmailMessage
-from django.core.serializers import json
 from django.http import Http404, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListCreateAPIView
 from rest_framework.permissions import IsAuthenticated
 from django_filters import rest_framework as filters
-from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import Kudo
@@ -23,7 +20,6 @@ class ListCreateKudoAPIView(ListCreateAPIView):
     create kudo instances
     """
 
-
     serializer_class = KudoSerializer
     queryset = Kudo.objects.all()
     permission_classes = [IsAuthenticated]
@@ -37,7 +33,7 @@ class ListCreateKudoAPIView(ListCreateAPIView):
         current_date = datetime.datetime.now()
         email = EmailMessage(
             'a note to remember',
-            'thank you',
+            f'thank you{current_date}',
             employee_email,
             []
         )
@@ -64,7 +60,7 @@ class RetrieveEmployeeAPIView(APIView):
             raise Http404
 
     @csrf_exempt
-    def get(self, request, pk, format=None):
+    def get(self, request, pk):
         snippet = self.get_object(pk)
         s_logs = list(snippet.values('title', 'id'))
         return JsonResponse(s_logs, safe=False)
@@ -85,7 +81,7 @@ class RetrieveTeamAPIView(APIView):
             raise Http404
 
     @csrf_exempt
-    def get(self, request, pk, format=None):
+    def get(self, request, pk):
         snippet = self.get_object(pk)
         s_logs = list(snippet.values('title', 'id'))
         return JsonResponse(s_logs, safe=False)
@@ -105,9 +101,7 @@ class RetrieveDepartmentAPIView(APIView):
             raise Http404
 
     @csrf_exempt
-    def get(self, request, pk, format=None):
+    def get(self, request, pk):
         snippet = self.get_object(pk)
         s_logs = list(snippet.values())
         return JsonResponse(s_logs, safe=False)
-
-

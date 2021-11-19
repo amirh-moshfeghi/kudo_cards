@@ -69,9 +69,10 @@ class Team(models.Model):
 class Employee(AbstractBaseUser, PermissionsMixin):
     """Employee model class."""
     email = models.EmailField(blank=False, unique=True)
-    department = models.OneToOneField(Department, related_name='employees', on_delete=models.CASCADE, blank=True, null=True)
-    first_name = models.CharField(max_length=50,null=False)
-    last_name = models.CharField(max_length=50,null=False)
+    department = models.OneToOneField(Department, related_name='employees', on_delete=models.CASCADE, blank=True,
+                                      null=True)
+    first_name = models.CharField(max_length=50, null=False)
+    last_name = models.CharField(max_length=50, null=False)
     team = models.ForeignKey(Team, related_name='members', on_delete=models.CASCADE, blank=True, null=True)
     is_staff = models.BooleanField(default=False)
     is_leader = models.BooleanField(default=False)
@@ -85,5 +86,3 @@ class Employee(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return '{}'.format(self.email)
-
-
