@@ -8,9 +8,9 @@ class KudoFilter(filters.FilterSet):
     year = filters.NumberFilter()
     year__gt = filters.NumberFilter(field_name='year', lookup_expr='gt')
     year__lt = filters.NumberFilter(field_name='year', lookup_expr='lt')
-    creator__username = filters.CharFilter(lookup_expr='icontains')
+    creator__email = filters.CharFilter(lookup_expr='icontains')
 
     class Meta:
         model = Kudo
-        fields = ['title', 'year', 'year__gt', 'year__lt', 'creator__username']
+        fields = ['title', 'year', 'year__gt', 'year__lt', 'creator__email']
 

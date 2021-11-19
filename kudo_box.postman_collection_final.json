@@ -1,0 +1,1524 @@
+{
+	"info": {
+		"_postman_id": "3f358bf4-97fc-47a9-8eb2-9084fcc48311",
+		"name": "kudo_box",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "amirh.moshfeghi2@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456QAws",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "test_first_name",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "test_last_name",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/auth/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register",
+						""
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "test@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "123456QAws",
+							"disabled": true
+						},
+						{
+							"key": "team",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "department",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "test_first_name",
+							"disabled": true
+						},
+						{
+							"key": "last_name",
+							"value": "test_last_name",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "amirh.moshfeghi2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456QAws",
+									"type": "text"
+								},
+								{
+									"key": "first_name",
+									"value": "test_first_name",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "test_last_name",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/auth/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register",
+								""
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "test@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "123456QAws",
+									"disabled": true
+								},
+								{
+									"key": "team",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "department",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "first_name",
+									"value": "test_first_name",
+									"disabled": true
+								},
+								{
+									"key": "last_name",
+									"value": "test_last_name",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 19 Nov 2021 16:25:59 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "147"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"amirh.moshfeghi2@gmail.com\",\n    \"department\": null,\n    \"team\": null,\n    \"first_name\": \"test_first_name\",\n    \"last_name\": \"test_last_name\",\n    \"is_manager\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "login(obtain token)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "amirh.moshfeghi@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456QAws",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/auth/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"token",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login(obtain token)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "amirh.moshfeghi@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456QAws",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/auth/token/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"token",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 19 Nov 2021 16:25:28 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "483"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYzNzQyNTUyOCwiaWF0IjoxNjM3MzM5MTI4LCJqdGkiOiJhMTBkNmE5ODRhYTY0Njc3YmUyNWE2YzkwMTEzMGYzMSIsInVzZXJfaWQiOjF9.f4fbXD6AHH9iqCaX27vXq3_QpKDPiCOQcq3DIy3D4n0\",\n    \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM3MzM5NDI4LCJpYXQiOjE2MzczMzkxMjgsImp0aSI6ImFhNmE5M2IzODg0MTQ0Y2ZiOWQ2MmEwOTAwMWUwOTg3IiwidXNlcl9pZCI6MX0.BA9mYOyrZp4ecBWOQyqGi_SZZDovoLZkFDg4t5qLbVU\"\n}"
+				}
+			]
+		},
+		{
+			"name": "refresh_token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "refresh",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYzNzQyNTUyOCwiaWF0IjoxNjM3MzM5MTI4LCJqdGkiOiJhMTBkNmE5ODRhYTY0Njc3YmUyNWE2YzkwMTEzMGYzMSIsInVzZXJfaWQiOjF9.f4fbXD6AHH9iqCaX27vXq3_QpKDPiCOQcq3DIy3D4n0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/auth/token/refresh/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"token",
+						"refresh",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "refresh_token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "refresh",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYzNzQyNTUyOCwiaWF0IjoxNjM3MzM5MTI4LCJqdGkiOiJhMTBkNmE5ODRhYTY0Njc3YmUyNWE2YzkwMTEzMGYzMSIsInVzZXJfaWQiOjF9.f4fbXD6AHH9iqCaX27vXq3_QpKDPiCOQcq3DIy3D4n0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/auth/token/refresh/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"token",
+								"refresh",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 19 Nov 2021 16:29:16 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "241"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM3MzM5NjU2LCJpYXQiOjE2MzczMzkxMjgsImp0aSI6ImU2OWE3OWQ0NmZhYTQyNWQ5YmY1NjY3YTgwY2Y4YzJmIiwidXNlcl9pZCI6MX0.8N-jrXUNDyvlOMuokbsY6DInM6POf6JZ7v5_6obFMzk\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get_kudos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM3MzQwMjkzLCJpYXQiOjE2MzczMzk5OTMsImp0aSI6IjJlMWE2ZWVhNWI0ZDRlYjM5YWVhZDYyNjRhMzBmYTUyIiwidXNlcl9pZCI6MX0.uI3nwJKOtGvtq-zVrwns6RwqqRLtWeKcO2jItQBDdVw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/kudos/employee/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"kudos",
+						"employee",
+						"2",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get_kudos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/kudos/employee/2/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"kudos",
+								"employee",
+								"2",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 19 Nov 2021 16:42:30 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"title\": \"thanks\",\n        \"id\": 1\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "get_team(kudos)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM3MzQwNTI1LCJpYXQiOjE2MzczNDAyMjUsImp0aSI6ImU2ZmFhNzE4OWYzYTQ1M2JhMTg1OTlhOTZlNzQ3ZmM5IiwidXNlcl9pZCI6MX0.2R4yOTtZ2sqQKE4nthQQfq2XxkQzQt4_p7anzC9kz0Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/kudos/team/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"kudos",
+						"team",
+						"1",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get_team(kudos)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/kudos/team/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"kudos",
+								"team",
+								"1",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 19 Nov 2021 16:45:37 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"title\": \"thanks\",\n        \"id\": 1\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "get_department(organization)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM3MzQwNjg1LCJpYXQiOjE2MzczNDAzODUsImp0aSI6IjBmNmMyNmMxNTllODRjNWM4MmE2NTMxNzY4YmFhNDM2IiwidXNlcl9pZCI6MX0.nonbOQfUm4_GNOqHopwTmhDwskazinml7LhdWEWDMoE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/kudos/department/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"kudos",
+						"department",
+						"1",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get_department(organization)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/kudos/department/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"kudos",
+								"department",
+								"1",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 19 Nov 2021 16:46:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "219"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"thanks\",\n        \"department_id\": 1,\n        \"team_id\": 1,\n        \"employee_id\": 2,\n        \"date\": \"2021-11-19T14:54:36.030Z\",\n        \"created_at\": \"2021-11-19T14:54:36.030Z\",\n        \"updated_at\": \"2021-11-19T14:54:36.030Z\",\n        \"creator_id\": 1\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "create kudo(send_email_within)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM3MzQwNzk4LCJpYXQiOjE2MzczNDA0OTgsImp0aSI6IjUyYjVkMzY3MmZmODRkZTFiNmE5OTdjNDBiZjRhYjgxIiwidXNlcl9pZCI6MX0.kkmli4hx69v_zOhF9QCXFytsNAjq-FQv3Y7oYwBSAQk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "gracias",
+							"type": "text"
+						},
+						{
+							"key": "department",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "team",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "employee",
+							"value": "amirh.moshfeghi@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/kudos/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"kudos",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create kudo(send_email_within)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "gracias",
+									"type": "text"
+								},
+								{
+									"key": "department",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "team",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "employee",
+									"value": "amirh.moshfeghi@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/kudos/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"kudos",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 19 Nov 2021 16:49:36 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "126"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"title\": \"gracias\",\n    \"department\": 1,\n    \"team\": 1,\n    \"employee\": \"amirh.moshfeghi@gmail.com\",\n    \"date\": \"2021-11-19T16:49:36.864987Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "update_kudos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM3MzQxMjM4LCJpYXQiOjE2MzczNDA5MzgsImp0aSI6IjQ2NWU5YzJkNTAxMzQxNWJiZGViNmUyYTlkMThjOWI0IiwidXNlcl9pZCI6MX0.1EDcDX0AH6P75nY7z8kWfJT5htRHUJm7O5gD_R8G_3w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "grac",
+							"type": "text"
+						},
+						{
+							"key": "department",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "team",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "employee",
+							"value": "amirh.moshfeghi@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/kudos/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"kudos",
+						"1",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update_kudos",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "grac",
+									"type": "text"
+								},
+								{
+									"key": "department",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "team",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "employee",
+									"value": "amirh.moshfeghi@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/kudos/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"kudos",
+								"1",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 19 Nov 2021 16:56:38 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "123"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"title\": \"grac\",\n    \"department\": 1,\n    \"team\": 1,\n    \"employee\": \"amirh.moshfeghi@gmail.com\",\n    \"date\": \"2021-11-19T16:56:38.494644Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "delete_kudos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM3MzQxNjc0LCJpYXQiOjE2MzczNDEzNzQsImp0aSI6ImYyZjZmZjcyYTNiZjQ5MTNhNWJlZDQ3ZDM3MDYzZTMwIiwidXNlcl9pZCI6MX0.YmX9-Fx78ZLtZ5ySQ-IKgv4nURvZz49japXC83ASDmI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "amirh.moshfeghi@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "123456QAws",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "amir",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "last_name",
+							"value": "moshfegh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "is_manager",
+							"value": "True",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/kudos/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"kudos",
+						"1",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "delete_kudos",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "amirh.moshfeghi@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "123456QAws",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "first_name",
+									"value": "amir",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "last_name",
+									"value": "moshfegh",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "is_manager",
+									"value": "True",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/kudos/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"kudos",
+								"1",
+								""
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 19 Nov 2021 17:05:52 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "23"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Not found.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "upgrade_employee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM3MzQyMDQ1LCJpYXQiOjE2MzczNDE3NDUsImp0aSI6IjE0OTQ2ZDQ3MjExZDRjODc4MTQ4NTg3ZTViYTZlMzFkIiwidXNlcl9pZCI6NX0.285VvRe5cDbf1JDhzHqeumZKgC9AKscrRxe7yXIA6sc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "amirh.moshfeghi@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456QAws",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "amir",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "moshfegh",
+							"type": "text"
+						},
+						{
+							"key": "is_manager",
+							"value": "True",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/auth/user/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "upgrade_employee",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "amirh.moshfeghi@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456QAws",
+									"type": "text"
+								},
+								{
+									"key": "first_name",
+									"value": "amir",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "moshfegh",
+									"type": "text"
+								},
+								{
+									"key": "is_manager",
+									"value": "True",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/auth/user/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"user",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 19 Nov 2021 17:10:09 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"amirh.moshfeghi@gmail.com\",\n    \"department\": null,\n    \"team\": null,\n    \"first_name\": \"amir\",\n    \"last_name\": \"moshfegh\",\n    \"is_manager\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "search_query_params",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM3MzQyMDQ1LCJpYXQiOjE2MzczNDE3NDUsImp0aSI6IjE0OTQ2ZDQ3MjExZDRjODc4MTQ4NTg3ZTViYTZlMzFkIiwidXNlcl9pZCI6NX0.285VvRe5cDbf1JDhzHqeumZKgC9AKscrRxe7yXIA6sc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": [
+				{
+					"name": "search_query_params",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/kudos/?creator__email=amir",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"kudos",
+								""
+							],
+							"query": [
+								{
+									"key": "creator__email",
+									"value": "amir"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 19 Nov 2021 18:56:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "178"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 2,\n            \"title\": \"gracias\",\n            \"department\": 1,\n            \"team\": 1,\n            \"employee\": \"amirh.moshfeghi@gmail.com\",\n            \"date\": \"2021-11-19T16:49:36.864987Z\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}
