@@ -1,4 +1,6 @@
 from django.urls import path
+from rest_framework.urlpatterns import format_suffix_patterns
+
 from . import views
 
 
@@ -9,3 +11,4 @@ urlpatterns = [
     path('team/<int:pk>/', views.RetrieveTeamAPIView.as_view(), name='get_team_kudo'),
     path('department/<int:pk>/', views.RetrieveDepartmentAPIView.as_view(), name='get_department_kudo'),
 ]
+urlpatterns = format_suffix_patterns(urlpatterns)

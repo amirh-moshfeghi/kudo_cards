@@ -15,4 +15,10 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Employee
-        fields = ('email', 'password', 'department', 'team', 'first_name', 'last_name', 'is_manager')
+        fields = ('email', 'password', 'department', 'team', 'is_manager')
+
+    def create(self, validated_data):
+        user = Employee.objects.create(**validated_data)
+        user.set_password(validated_data['password'])
+        user.save()
+        return user
